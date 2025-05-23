@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NewStories & Tales</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="decorative-first">
+      <h1><span class="dropcap-paragraph"></span>NewStories & Tales</h1>
+      </p>
+      <p class="subtitle">A community platform for impact storytelling—creativity, inclusion, inspiration.</p>
+      <a href="#stories" class="cta-button">Start Reading</a>
+    </div>
+  </header>
+
+  <!-- Story Card Grid -->
+  <main  id="stories" class="story-grid">
+    <article class="story-card fade-in">
+      <div class="ribbon-icon">
+        <button class="bookmark-btn" aria-label="Bookmark story">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24" class="bookmark-icon">
+  <path d="M2 0H18C19.1 0 20 0.9 20 2V24L10 18L0 24V2C0 0.9 0.9 0 2 0Z" fill="#CCCCCC"/>
+</svg>
+        </button>
+</div>
+
+      <h2 class="story-title">The Last Ember</h2>
+      <p class="story-author">by Asha M.</p>
+      <p class="story-excerpt">In the heart of a forgotten village, one flame held the power of generations...</p>
+      <a href="story-1.html" class="read-more">Read More</a>
+    </article>
+
+    <article class="story-card fade-in">
+      <div class="ribbon-icon">
+        <button class="bookmark-btn" aria-label="Bookmark story">
+        <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24" class="bookmark-icon">
+  <path d="M2 0H18C19.1 0 20 0.9 20 2V24L10 18L0 24V2C0 0.9 0.9 0 2 0Z" fill="#CCCCCC"/>
+</svg>
+        </button>
+</div>
+      <h2 class="story-title">Paper Wings</h2>
+      <p class="story-author">by J. Kwan</p>
+      <p class="story-excerpt">Folded dreams took flight above rooftops and riverbeds...</p>
+      <a href="story-2.html" class="read-more">Read More</a>
+    </article>
+
+    <article class="story-card fade-in">
+      <div class="ribbon-icon">
+        <button class="bookmark-btn" aria-label="Bookmark story">
+       <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24" class="bookmark-icon">
+  <path d="M2 0H18C19.1 0 20 0.9 20 2V24L10 18L0 24V2C0 0.9 0.9 0 2 0Z" fill="#CCCCCC"/>
+</svg>
+        </button>
+</div>
+      <h2 class="story-title">Silent Quills</h2>
+      <p class="story-author">by Theo R.</p>
+      <p class="story-excerpt">A tale written in stardust, buried beneath the moon’s hush...</p>
+      <a href="story-3.html" class="read-more">Read More</a>
+    </article>
+  </main>
+  <script>
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(el => observer.observe(el));
+</script>
+<script>
+  document.querySelectorAll('.bookmark-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+     const path = btn.querySelector('svg path');
+      const currentFill = path.getAttribute('fill');
+      const activeColor = '#FFB300'; 
+      const inactiveColor = '#CCCCCC'; 
+
+      path.setAttribute('fill', currentFill === activeColor ? inactiveColor : activeColor);
+
+    });
+  });
+</script>
+</body>
+</html>
